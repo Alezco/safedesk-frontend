@@ -1,0 +1,80 @@
+<td-steps mode="horizontal" class="trans">
+  <td-step #step1 label="SafeDesk ?"  [active]="true" [disabled]="disabled">
+    <md-grid-list cols="2" rowHeight="2:1">
+      <md-grid-tile>
+        <td-markdown class="padding-few">
+          ###Welcome to safedesk !
+
+          Ready for the *challenge* ?
+          Your are going to evolve in a virtual environment.
+          The purpose of the game is to win a lot of *points* and to dodge evil hackers.
+          Climb the ladder in your new firm, and compare yourself to other players *all over the world*.
+        </td-markdown>
+      </md-grid-tile>
+      <md-grid-tile>
+        <img src="http://www.mdlinternational.org/wp-content/uploads/2016/02/53-_Top_Timing_Strategies_for_Corporate_Relocation.jpg" layout-fill>
+      </md-grid-tile>
+    </md-grid-list>
+  </td-step>
+  <td-step #step2 label="Emails" [state]="stateStep2" [disabled]="disabled">
+    <md-grid-list cols="2" rowHeight="2:1">
+      <md-grid-tile>
+        <td-markdown class="padding-few">
+          ###Tips and Advice (1/2)
+
+          The favorite tools of hackers are commonly used software or tools.
+
+          ##### Emails
+          Everyone manipulates emails everyday, even if they seems harmless.
+          There are many ways to commit a fraud :
+          + Phishing
+          + Identity thief
+
+          And many others that you may experience in this game.
+        </td-markdown>
+      </md-grid-tile>
+      <md-grid-tile>
+        <img src="https://i.imgur.com/ZEIENDU.jpg" layout-fill>
+      </md-grid-tile>
+    </md-grid-list>
+  </td-step>
+  <td-step #step3 label="USB keys" [state]="stateStep3" [disabled]="disabled">
+    <md-grid-list cols="2" rowHeight="2:1">
+      <md-grid-tile>
+        <td-markdown class="padding-few">
+          ###Tips and Advice (2/2)
+
+          The favorite tools of hackers are commonly used software or tools.
+
+          ##### USB
+          Usb keys are really useful in everyday small digital operation.
+          Unfortunately, deadly viruses and malwares can be hidden in them.
+          Be careful and organized.
+
+        </td-markdown>
+      </md-grid-tile>
+      <md-grid-tile>
+        <img src="https://i.imgur.com/dVsQw61.jpg" layout-fill>
+      </md-grid-tile>
+    </md-grid-list>
+  </td-step>
+  <td-step #step4 label="Good luck" [state]="stateStep4" [disabled]="disabled">
+    <md-grid-list cols="2" rowHeight="2:1">
+      <md-grid-tile>
+        <td-markdown class="padding-few">
+          ###Good luck
+
+          Be *careful*, *analyze* everything, *detect threats* and get a highscore!
+          And don't forget to have fun !
+        </td-markdown>
+      </md-grid-tile>
+      <md-grid-tile>
+        <img src="https://appterra.com/wp-content/uploads/2014/07/trust-shake.jpg" layout-fill>
+      </md-grid-tile>
+    </md-grid-list>
+  </td-step>
+</td-steps>
+<div layout="row">
+  <div flex><button md-raised-button (click)="prev()" color="primary">Previous</button></div>
+  <div flex-end><button md-raised-button (click)="next()"color="primary">Next</button></div>
+</div>

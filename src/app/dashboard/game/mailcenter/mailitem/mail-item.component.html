@@ -1,0 +1,71 @@
+<simple-notifications [options]="notificationOptions"></simple-notifications>
+<md-card tdMediaToggle="gt-xs">
+    <td-search-box class="push-left push-right" placeholder="search" [alwaysVisible]="true"
+                   (searchDebounce)="filterEmailsByName($event)"></td-search-box>
+    <md-divider></md-divider>
+    <ng-template tdLoading="messages.list">
+        <md-list class="will-load">
+            <div class="md-padding" *ngIf="!emails || emails.length === 0"
+                 layout="row" layout-align="center center">
+                <h3>No mails to display.</h3>
+            </div>
+            <ng-template let-mail let-last="last" ngFor [ngForOf]="emails">
+                <td-expansion-panel (expanded)="expandedEvent()" (collapsed)="collapsedEvent()" #expansionPanel>
+                    <ng-template td-expansion-panel-header>
+                        <md-list-item class="fullsize email-list">
+                            <img md-list-avatar src="{{mail.sender.avatar}}">
+                            <h3 md-line> {{mail.sender.email}} </h3>
+                            <p md-line> {{mail.subject}} </p>
+                            <span flex></span>
+                            <span hide-xs hide-sm hide-md flex-gt-xs="60" flex-xs="40" layout-gt-xs="row">
+                                <div class="md-caption tc-grey-500" flex-gt-xs="50"> {{ mail.created_at }} </div>
+                                <div class="md-caption tc-grey-500" flex-gt-xs="50"> <md-icon>attach_file</md-icon></div>
+                            </span>
+                            <span>
+                                <button md-icon-button [md-menu-trigger-for]="menu">
+                                    <md-icon>more_vert</md-icon>
+                                </button>
+                                <md-menu x-position="before" #menu="mdMenu">
+                                    <button md-menu-item (click)="markAsSpam(mail)">Mark as spam</button>
+                                </md-menu>
+                            </span>
+                        </md-list-item>
+                    </ng-template>
+
+
+                    <md-card tdMediaToggle="gt-xs">
+                        <div *ngIf="mail.html" [innerHTML]="mail.content"></div>
+                        <div class="md-padding">
+                            <ng-template let-content let-last="last" ngFor [ngForOf]="mail.contents" *ngIf="!mail.html">
+                                <app-markdown [content]="content">
+                                </app-markdown>
+                            </ng-template>
+                        </div>
+                        <div layout="row" layout-align="space-around center" class="pad">
+                            <button md-button (click)="newMail(mail.sender, mail.subject, mail.id)" class="tc-grey-600">
+                                <md-icon class="pull-bottom">reply</md-icon>
+                                <div class="md-caption">Reply</div>
+                            </button>
+                            <button md-button class="tc-grey-600">
+                                <md-icon class="pull-bottom">reply_all</md-icon>
+                                <div class="md-caption">Reply All</div>
+                            </button>
+                            <button md-button class="tc-grey-600">
+                                <md-icon class="pull-bottom">forward</md-icon>
+                                <div class="md-caption">Forward</div>
+                            </button>
+                        </div>
+                    </md-card>
+                </td-expansion-panel>
+                <md-divider *ngIf="!last" md-inset></md-divider>
+            </ng-template>
+        </md-list>
+    </ng-template>
+    <md-divider></md-divider>
+    <md-card-actions>
+        <td-paging-bar #pagingBar [pageSizes]="[5, 10, 15, 20]" [total]="pagination.getTotal()" (change)="paginationEvent($event)">
+            <span td-paging-bar-label hide-xs>Row per page:</span>
+            {{pagingBar.range}} <span hide-xs>of {{pagingBar.total}}</span>
+        </td-paging-bar>
+    </md-card-actions>
+</md-card>

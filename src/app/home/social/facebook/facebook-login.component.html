@@ -1,0 +1,5 @@
+<form method="post" action="{{backUrl}}" ngNoForm target="_blank">
+    <input type="hidden" name="callback_url" value="{{callbackUrl}}">
+    <input type="hidden" name="onesignal_id" value="{{onesignalId}}" *ngIf="onesignalId">
+    <button md-raised-button color="accent" type="submit">Login with Facebook</button>
+</form>

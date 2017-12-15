@@ -1,0 +1,36 @@
+<div id="pane" #myPane>
+    <div id="action-header">
+        <div *ngIf="type === Type.Filesystem && showback">
+            <button class="back-icon" (click)="up()" md-icon-button>
+                <md-icon>keyboard_arrow_left</md-icon>
+            </button>
+        </div>
+        <span class="pane-title">{{ title }}</span>
+    </div>
+    <div id="action" >
+        <button (click)="removeChild()" md-icon-button>
+            <md-icon class="tc-white-700">close</md-icon>
+        </button>
+    </div>
+    <div class="scroll" *ngIf="type === Type.MailCenter">
+        <app-mail-center>
+        </app-mail-center>
+    </div>
+    <div class="scroll" *ngIf="type === Type.Filesystem">
+        <app-filesystem #filesystem
+                        (updateBackArrow)="updateBackArrow($event)"
+                        (passDocToParent)="passDocToParent($event)">
+        </app-filesystem>
+    </div>
+    <div class="scroll" [style.height.px]="dynamicHeight">
+        <md-card *ngIf="content !== null">
+        <td-search-box class="push-left push-right" placeholder="search" [alwaysVisible]="true"
+                       (searchDebounce)="filterFileContent($event)"></td-search-box>
+            <ng-template let-content let-last="last" ngFor [ngForOf]="contents">
+                    <app-markdown
+                            [content]="content" >
+                    </app-markdown>
+            </ng-template>
+        </md-card>
+    </div>
+</div>

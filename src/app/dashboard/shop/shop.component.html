@@ -1,0 +1,22 @@
+<td-layout-manage-list
+        class="emails"
+        opened="true"
+        mode="side"
+        sidenavWidth="160px">
+    <md-toolbar td-sidenav-content>
+        <span>Menu</span>
+    </md-toolbar>
+    <md-nav-list td-sidenav-content>
+        <a md-list-item (click)="shopItem.loadWorkPlace()">
+            <md-icon md-list-icon>location_city</md-icon>
+            Work place
+        </a>
+        <a md-list-item (click)="shopItem.loadFurniture()">
+            <md-icon md-list-icon>work</md-icon>
+            Furniture
+        </a>
+    </md-nav-list>
+    <div class="md-content">
+    </div>
+    <app-shop-item #shopItem [reference]="reference"></app-shop-item>
+</td-layout-manage-list>

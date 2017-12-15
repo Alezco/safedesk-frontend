@@ -1,0 +1,43 @@
+<md-card-title>General information</md-card-title>
+<md-chip-list *ngIf="formSuccess" class="alert alert-success" ng-show="false">
+  <md-chip color="success" selected="true">
+    <strong>{{formSuccess.title}}: </strong>{{formSuccess.description}}
+  </md-chip>
+</md-chip-list>
+<div *ngIf="hasErrors" class="alert alert-danger" ng-show="false">
+  <md-chip-list *ngFor="let error of formErrors">
+    <md-chip color="warn" selected="true">
+      <strong>{{error.title}}: </strong>{{error.description}}
+    </md-chip>
+  </md-chip-list>
+</div>
+<form (ngSubmit)="updateInfo()" #profileInfoForm="ngForm" ngNativeValidate>
+    <md-card-subtitle>Profile picture</md-card-subtitle>
+    <div layout="row" layout-margin>
+        <div layout="row" layout-margin>
+            <img width="50px" height="50px" src="{{formObject.avatar_url}}" />
+        </div>
+    </div>
+    <div layout="row" layout-margin>
+        <md-input-container flex>
+            <input mdInput placeholder="Firstname" autocomplete="off"
+                   required [(ngModel)]="formObject.firstname" #firstname="ngModel"
+                   [ngModelOptions]="{standalone: true}" title="firstname">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-margin>
+        <md-input-container flex>
+            <input mdInput placeholder="Lastname" autocomplete="off"
+                   required [(ngModel)]="formObject.lastname" #lastname="ngModel"
+                   [ngModelOptions]="{standalone: true}" title="lastname">
+        </md-input-container>
+    </div>
+    <div layout="row" layout-margin>
+        <md-input-container flex>
+            <input mdInput placeholder="Email" autocomplete="off" type="email"
+                   required [(ngModel)]="formObject.email" #email="ngModel"
+                   [ngModelOptions]="{standalone: true}" title="email">
+        </md-input-container>
+    </div>
+    <button type="submit" md-raised-button color="accent" (onClick)="updateInfo()">Update information</button>
+</form>

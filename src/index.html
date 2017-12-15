@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8"/>
+    <title>SafeDesk</title>
+    <base href="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="theme-color" content="#3F51B5">
+    <link rel="manifest" href="./manifest.json">
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../node_modules/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+    <app-root>
+        <div id="pre-bootstrap">
+            <div id="pre-bootstrap-loader">
+                <i class="fa fa-circle-o-notch fa-spin fa-4x"></i>
+            </div>
+        </div>
+        <style type="text/css">
+            #pre-bootstrap {
+                background-color: #2196F3;
+                opacity: 1.0;
+                position: fixed;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                transition: all linear 300ms;
+                -webkit-transition: all linear 300ms;
+                z-index: 999999;
+            }
+            #pre-bootstrap-loader {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: white
+            }
+        </style>
+      <noscript>Please enable Javascript.</noscript>
+    </app-root>
+</body>
+</html>

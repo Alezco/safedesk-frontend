@@ -1,0 +1,28 @@
+<md-tab-group>
+    <div *ngFor="let item of services">
+        <md-tab>
+            <div class="legit-height">
+                <ng-template md-tab-label>
+                    <em>{{item}}</em>
+                </ng-template>
+                <h1>{{item}} service</h1>
+                <div *ngFor="let user of usersLegit">
+                    <div *ngIf="user.service === item">
+                        <div class="profile-top">
+                            <div class="pic-sec">
+                                <div class="pic">
+                                    <img src="{{user.avatar}}" alt=""/>
+                                </div>
+                                <div class="pic-info">
+                                    <h2>{{user.firstname}} {{user.lastname}}</h2>
+                                    <h3>{{user.email}}</h3>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </md-tab>
+    </div>
+</md-tab-group>

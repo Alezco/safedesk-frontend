@@ -1,0 +1,74 @@
+<div class="holder">
+    <h1 md-dialog-title class="primary-color">{{ type }}</h1>
+    <span flex></span>
+    <button md-icon-button color="alert" md-dialog-close>
+        <md-icon class="tc-red-700">close</md-icon>
+    </button>
+</div>
+<form (ngSubmit)="sendMail()" #replyForm="ngForm" ngNativeValidate>
+<md-dialog-content class="accent-color">
+    <md-card>
+        <div *ngIf="hasErrors" class="alert alert-danger" ng-show="false">
+            <md-chip-list *ngFor="let error of formErrors">
+                <md-chip color="warn" selected="true">
+                    <strong>{{error.title}}: </strong>{{error.description}}
+                </md-chip>
+            </md-chip-list>
+        </div>
+        <md-card-content class="push-bottom-none">
+            <div layout="row" layout-margin>
+                <md-input-container flex>
+                    <input mdInput="Object" placeholder="Subject"
+                           [(ngModel)]="formObject.subject" required #subject="ngModel"
+                           [ngModelOptions]="{standalone: true}">
+                </md-input-container>
+            </div>
+            <div layout="row" layout-margin>
+                <div flex>
+                    <td-chips [items]="emailList"  placeholder="To"
+                              [readOnly]="readOnly" [(ngModel)]="model"
+                              [ngModelOptions]="{standalone: true}">
+                    </td-chips>
+                </div>
+            </div>
+            <div layout="row" layout-margin>
+                <div flex>
+                    <td-chips placeholder="Attachment" [(ngModel)]="attachmentList"
+                              [chipAddition]="attachmentList.length <= 0" [ngModelOptions]="{standalone: true}">
+                    </td-chips>
+                </div>
+            </div>
+            <div layout="row" layout-margin>
+                <md-input-container flex class="displayInline">
+                    <textarea mdInput rows="10" placeholder="Message"
+                              [(ngModel)]="formObject.content" required #body="ngModel"
+                              [ngModelOptions]="{standalone: true}"></textarea>
+                </md-input-container>
+            </div>
+        </md-card-content>
+    </md-card>
+</md-dialog-content>
+<md-dialog-actions>
+    <div class="holder">
+        <div class="button-row">
+            <button md-button type="submit" class="bgc-blue-700" (onClick)="sendMail()" flex>
+                <md-icon class="tc-white-4">reply</md-icon>
+                <span class="tc-white-4">Reply</span>
+            </button>
+            <button md-button type="button" class="bgc-blue-300" (click)="addAttachment()">
+                <md-icon class="tc-white-4">attach_file</md-icon>
+                <span class="tc-white-4">Add attachment</span>
+            </button>
+        </div>
+    </div>
+</md-dialog-actions>
+</form>
+
+<div *ngIf="isFileDialogOpen">
+    <app-sub-window #fs [title]="attachmentTitle"
+                    [type]="SubwindowType.Filesystem"
+                    [topLevelIndex]=i
+                    (notifyParent)="removeTopLevel($event)"
+                    (OpenDoc)="OpenDoc($event)">
+    </app-sub-window>
+</div>

@@ -1,0 +1,12 @@
+<div>
+    <div class="centered-block" *ngIf="!badge">
+        <h2>404 - Page not found</h2>
+    </div>
+    <div class="centered-block" *ngIf="badge">
+        <h1>Congratulations! You earned a new badge</h1>
+        <br /><br /><br />
+        <img src="{{ badge.image }}">
+        <h2>{{ badge.name }}</h2>
+        <p>{{ badge.description }}</p>
+    </div>
+</div>

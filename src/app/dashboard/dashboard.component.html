@@ -1,0 +1,38 @@
+<md-sidenav-container fullscreen>
+  <md-sidenav #sidenav>
+    <md-nav-list *ngFor="let item of menuItems">
+      <md-list-item (click)="sidenav.toggle()" [routerLink]="item.router">
+        <md-icon md-list-icon>{{ item.icon }}</md-icon>
+        <span md-line>{{ item.name }}</span>
+        <span md-line class="secondary">{{ item.description }}</span>
+      </md-list-item>
+    </md-nav-list>
+  </md-sidenav>
+  <md-toolbar color="primary">
+    <button md-icon-button (click)="sidenav.open()">
+      <md-icon>menu</md-icon>
+    </button>
+    <span class="link" [routerLink]="['/dashboard']">SafeDesk</span>
+    <span class="fill-remaining-space"></span>
+    <div *ngIf="router.url === '/dashboard'">
+      <button  (click)="openLegit()" md-icon-button>
+        <md-icon>help</md-icon>
+      </button>
+    </div>
+    <button md-icon-button [mdMenuTriggerFor]="toolbarMenu1"><md-icon>more_vert</md-icon></button>
+    <md-menu #toolbarMenu1="mdMenu">
+      <button md-menu-item [routerLink]="['/dashboard/profile']">
+        <md-icon>settings</md-icon>
+        <span>Settings</span>
+      </button>
+      <button md-menu-item (click)="logOut()">
+        <md-icon>exit_to_app</md-icon>
+        <span>Sign out</span>
+      </button>
+    </md-menu>
+  </md-toolbar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer></footer>
+</md-sidenav-container>

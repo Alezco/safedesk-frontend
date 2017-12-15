@@ -1,0 +1,62 @@
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+@include mat-core;
+
+.holder {
+  display: flex;
+}
+
+.reply-form {
+  padding: 50px;
+}
+
+.fullsize {
+  width: 100%;
+}
+
+button.email-item-button {
+  margin: 20px;
+  padding: 0 20px;
+}
+
+.email-list {
+  margin: 5px;
+  min-height: 70px;
+}
+
+app-mail-search {
+  width: 100%;
+}
+
+app-mail-item {
+  width: 100%;
+}
+
+// FIXME: Why demo name ?
+.demo-toolbar {
+  padding: 6px;
+
+  .demo-toolbar-icon {
+    padding: 0 14px;
+  }
+
+  .demo-fill-remaining {
+    flex: 1 1 auto;
+  }
+}
+
+.mat-sidenav-backdrop,
+.emails .mat-sidenav-container[fullscreen] {
+  // Important only used because two sidenav are used on the same page
+  position: inherit !important;
+  width: 100%;
+}
+
+.emails-nav td-layout-manage-list md-sidenav-container {
+  width: 100%;
+}
+
+app-mail-center > td-layout-nav > div {
+  width: 100%;
+}

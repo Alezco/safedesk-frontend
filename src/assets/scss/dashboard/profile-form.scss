@@ -1,0 +1,42 @@
+.profile-form {
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.profile-form md-card.mat-card {
+  margin: 30px auto;
+  width: auto;
+  max-width: 500px;
+}
+
+.profile-form md-card md-card-content {
+  margin-bottom: 30px;
+}
+
+.profile-form md-card md-card-footer {
+  position: relative;
+  text-align: center;
+  line-height: 10px;
+  margin: 15px 0;
+}
+
+.profile-form md-card md-card-footer a {
+  text-decoration: none;
+  color: #B2B2B2;
+  font-size: 13px;
+}
+
+.profile-form md-card md-card-footer a:hover {
+  cursor: pointer;
+}
+
+.profile-form md-input-container {
+  width: 100%;
+}
+
+.profile-form md-card button {
+  margin-top: 15px;
+  width: 100%;
+  text-transform: uppercase;
+}

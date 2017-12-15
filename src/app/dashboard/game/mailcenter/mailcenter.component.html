@@ -1,0 +1,42 @@
+<td-layout-manage-list
+        class="emails"
+        opened="true"
+        mode="side"
+        sidenavWidth="160px">
+  <md-toolbar td-sidenav-content>
+    <span>Menu</span>
+  </md-toolbar>
+  <md-nav-list td-sidenav-content>
+    <a md-list-item (click)="mailItem.loadEmails()">
+      <md-icon md-list-icon>account_circle</md-icon>
+      All mails
+    </a>
+    <a md-list-item >
+      <md-icon md-list-icon>star</md-icon>
+      Favorites
+    </a>
+    <a md-list-item (click)="mailItem.loadEmailsReplies()">
+      <md-icon md-list-icon>verified_user</md-icon>
+      Mail sent
+    </a>
+    <a md-list-item (click)="mailItem.loadEmailsSpams()">
+      <md-icon md-list-icon>inbox</md-icon>
+      Spams
+    </a>
+  </md-nav-list>
+
+  <div td-toolbar-content layout="row" layout-align="start center" flex>
+<md-toolbar>
+    <span>Mails</span>
+    <span flex></span>
+    <button (click)="mailItem.refreshEmails()" md-icon-button><md-icon class="md-24">refresh</md-icon></button>
+    <button md-icon-button><md-icon class="md-24">sort</md-icon></button>
+    <button md-icon-button><md-icon class="md-24">settings</md-icon></button>
+    <button md-icon-button><md-icon class="md-24">more_vert</md-icon></button>
+
+  </md-toolbar>
+  </div>
+  <div class="md-content">
+  </div>
+  <app-mail-item #mailItem [reference]="reference"></app-mail-item>
+</td-layout-manage-list>

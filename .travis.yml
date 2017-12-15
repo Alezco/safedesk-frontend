@@ -1,0 +1,15 @@
+language: node_js
+node_js:
+  - '6'
+
+before_script:
+  - yarn
+
+script: yarn run syntax && yarn build && bash ./check-repository.sh && bash ./deploy.sh
+
+notifications:
+  slack:
+    on_success: never
+    on_failure: always
+    template:
+      - "Build <%{build_url}|#%{build_number}> (<%{compare_url}|%{commit_subject}>) of %{repository_name}@%{branch} by %{author} %{result} in %{duration}"

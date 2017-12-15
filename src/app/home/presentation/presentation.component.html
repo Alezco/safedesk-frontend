@@ -1,0 +1,21 @@
+<div class="presentation-header">
+  <div class="presentation-content">
+    <p>Safedesk</p>
+    <p>Serious game that helps you learn security concepts</p>
+  </div>
+  <div class="presentation-action">
+    <button md-raised-button color="accent" routerLink="/login">Get Started</button>
+  </div>
+</div>
+<div class="container">
+  <div class="presentation-video">
+    <iframe src="https://www.youtube.com/embed/lK-H54Zdg-U?rel=0&amp;controls=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+  </div>
+</div>
+<div class="card-container">
+  <md-card *ngFor="let feature of features">
+    <img md-card-image [alt]="feature.title" src="{{ feature.image }}" />
+    <md-card-title>{{ feature.title }}</md-card-title>
+    <md-card-content class="secondary">{{ feature.description }} </md-card-content>
+  </md-card>
+</div>

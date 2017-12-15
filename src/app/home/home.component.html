@@ -1,0 +1,33 @@
+<div class="page-flexbox-wrapper">
+  <header>
+    <md-toolbar color="primary" layout="row" align="center center">
+      <span class="link" [routerLink]="['/']">SafeDesk</span>
+      <span class="fill-remaining-space"></span>
+      <button md-button [routerLink]="['/login']">Login</button>
+      <button md-button routerLink="/register">Register</button>
+    </md-toolbar>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <footer>
+    <div class="footer-columns">
+      <section>
+        <h2>About</h2>
+        <ul>
+          <li><a [routerLink]="['/team']">The team</a></li>
+        </ul>
+      </section>
+      <section>
+        <h2>Support</h2>
+        <ul>
+          <li><a [routerLink]="['/faq']">FAQ</a></li>
+          <li><a [routerLink]="['/contact']">Contact</a></li>
+        </ul>
+      </section>
+    </div>
+    <div class="footer-container">
+      @Copyright Safedesk
+    </div>
+  </footer>
+</div>

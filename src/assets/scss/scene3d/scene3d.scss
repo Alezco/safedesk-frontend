@@ -1,0 +1,21 @@
+.hud-right {
+  text-align: right;
+  position: absolute;
+  padding: 15px;
+  right: 0;
+  color: white;
+}
+
+.hud-left {
+  text-align: left;
+  position: absolute;
+  padding: 15px;
+  color: white;
+}
+
+.hud {
+  width: 100%;
+  height: 50px;
+  position: absolute;
+  background-color: rgba(69, 69, 69, 0.72);
+}

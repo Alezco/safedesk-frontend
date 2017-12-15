@@ -1,0 +1,41 @@
+.auth-form {
+  margin: 0 auto;
+}
+
+.contact-form md-card.mat-card {
+  margin: 30px auto;
+  width: auto;
+  max-width: 500px;
+}
+
+.contact-form md-card-content {
+  margin-bottom: 30px;
+}
+
+.contact-form md-card-footer {
+  position: relative;
+  text-align: center;
+  line-height: 10px;
+  margin: 15px 0;
+}
+
+.contact-form md-card-footer a {
+  text-decoration: none;
+  color: #B2B2B2;
+  font-size: 13px;
+}
+
+.contact-form md-card-footer a:hover {
+  cursor: pointer;
+}
+
+.contact-form md-input-container {
+  margin: 15px auto;
+  width: 100%;
+}
+
+.contact-form button {
+  margin-top: 15px;
+  width: 100%;
+  text-transform: uppercase;
+}

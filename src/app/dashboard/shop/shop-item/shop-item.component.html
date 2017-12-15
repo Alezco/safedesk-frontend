@@ -1,0 +1,45 @@
+<md-card class="custom-height">
+    <div layout-gt-xs="row">
+        <div flex-gt-xs="50" *ngFor="let item of shopsItems; let i = index">
+            <div *ngIf="item.locked">
+                <md-card class="example-card locked-item">
+                    <md-card-header>
+                        <div *ngIf="item.locked"><md-icon>lock</md-icon></div>
+                    </md-card-header>
+                    <img class="my-card-img" md-card-image src={{item.img}}>
+                    <md-card-content>
+                        {{item.description}}
+                    </md-card-content>
+                    <md-card-actions>
+                    </md-card-actions>
+                </md-card>
+            </div>
+            <div *ngIf="!item.locked">
+                <div *ngIf="item.selected">
+                    <md-card class="example-card selected-item" (dblclick)="selectedItem(item)">
+                        <md-card-header>
+                        </md-card-header>
+                        <img class="my-card-img" md-card-image src={{item.img}}>
+                        <md-card-content>
+                            {{item.description}}
+                        </md-card-content>
+                        <md-card-actions>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+                <div *ngIf="!item.selected">
+                    <md-card class="example-card" (dblclick)="selectedItem(item)">
+                        <md-card-header>
+                        </md-card-header>
+                        <img class="my-card-img" md-card-image src={{item.img}}>
+                        <md-card-content>
+                            {{item.description}}
+                        </md-card-content>
+                        <md-card-actions>
+                        </md-card-actions>
+                    </md-card>
+                </div>
+            </div>
+        </div>
+    </div>
+</md-card>

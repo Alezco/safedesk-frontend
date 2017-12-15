@@ -1,0 +1,7 @@
+<div class="card-container">
+    <md-card *ngFor="let member of members">
+        <img md-card-image [alt]="member.title" src="{{ member.image }}"/>
+        <md-card-title>{{ member.title }}</md-card-title>
+        <md-card-content class="secondary">{{ member.description }} </md-card-content>
+    </md-card>
+</div>

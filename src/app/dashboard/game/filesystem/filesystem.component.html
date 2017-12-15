@@ -1,0 +1,48 @@
+<app-filesystem-search (passFilesToParent)="passFilesToParent($event)"></app-filesystem-search>
+<md-grid-list cols="10" class="desktop-icon">
+  <div *ngIf="searchItems === null">
+    <div *ngFor="let item of items;">
+      <md-grid-tile (dblclick)="doubleClick(item)" (click)="click(item)" [ngClass]="{'selected-item': selectedItem === item}">
+        <div *ngIf="item.type === 'directory'">
+          <div *ngIf="item.origin === 'usbKey' && firstLevel">
+            <img src="../../../../assets/images/desktop/usb.png">
+          </div>
+          <div *ngIf="item.origin !== 'usbKey'">
+            <img src="../../../../assets/images/desktop/folder.png">
+          </div>
+        </div>
+        <div *ngIf="item.type === 'file'">
+          <img src="../../../../assets/images/desktop/file.png">
+        </div>
+        <md-grid-tile-footer>
+          <span>{{item.filename}}</span>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </div>
+  </div>
+  <div *ngIf="searchItems !== null">
+    <div *ngIf="searchItems === []">
+      <p>No results match your research</p>
+    </div>
+    <div *ngIf="searchItems !== []">
+      <div *ngFor="let item of searchItems;">
+        <md-grid-tile (dblclick)="doubleClick(item)" (click)="click(item)" [ngClass]="{'selected-item': selectedItem === item}">
+          <div *ngIf="item.type === 'directory'">
+            <div *ngIf="item.origin === 'usbKey' && firstLevel">
+              <img src="../../../../assets/images/desktop/usb.png">
+            </div>
+            <div *ngIf="item.origin !== 'usbKey'">
+              <img src="../../../../assets/images/desktop/folder.png">
+            </div>
+          </div>
+          <div *ngIf="item.type === 'file'">
+            <img src="../../../../assets/images/desktop/file.png">
+          </div>
+          <md-grid-tile-footer>
+            <span>{{item.filename}}</span>
+          </md-grid-tile-footer>
+        </md-grid-tile>
+      </div>
+    </div>
+  </div>
+</md-grid-list>

@@ -1,0 +1,73 @@
+.scroll {
+  overflow-y: auto;
+}
+
+.file-content {
+  padding: 20px;
+  // Override md-card default behaviour
+  margin: 20px !important;
+}
+
+.back-icon {
+  height: 30px;
+  width: auto;
+  display: inline-block;
+  padding-top: 5px;
+  float: left;
+}
+
+.pane-title {
+  padding-top: 5px;
+}
+
+#pane {
+  position: absolute;
+  width: 70%;
+  height: 70%;
+  top: 20%;
+  left: 20%;
+
+  margin: 0;
+  padding: 0;
+  z-index: 99;
+  border: 2px solid #1B23F3;
+  background: #FEFEFE;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+
+#title {
+  font-family: monospace;
+  background: #1B23F3;
+  color: white;
+  font-size: 24px;
+  height: 10px;
+  text-align: center;
+}
+
+#action {
+  float: right;
+  background: #1B23F3;
+  color: white;
+  font-size: 24px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+  width: 10%;
+}
+
+#action-header {
+  background: #1B23F3;
+  color: white;
+  font-size: 24px;
+  height: 40px;
+  text-align: center;
+  display: inline-block;
+  width: 90%;
+}
+
+.highlighted {
+  background: yellow;
+}

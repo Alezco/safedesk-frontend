@@ -1,0 +1,23 @@
+<md-card-title>Danger zone</md-card-title>
+<md-chip-list *ngIf="formSuccess" class="alert alert-success" ng-show="false">
+  <md-chip color="success" selected="true">
+    <strong>{{formSuccess.title}}: </strong>{{formSuccess.description}}
+  </md-chip>
+</md-chip-list>
+<div *ngIf="hasErrors" class="alert alert-danger" ng-show="false">
+  <md-chip-list *ngFor="let error of formErrors">
+    <md-chip color="warn" selected="true">
+      <strong>{{error.title}}: </strong>{{error.description}}
+    </md-chip>
+  </md-chip-list>
+</div>
+<form (ngSubmit)="submit()" #profileForm="ngForm" ngNativeValidate>
+  <div layout="row" layout-margin>
+    <md-input-container flex>
+      <input mdInput type="password" placeholder="Password"
+             required [(ngModel)]="formObject.password" #password="ngModel"
+             [ngModelOptions]="{standalone: true}" title="password"/>
+    </md-input-container>
+  </div>
+  <button type="submit" md-raised-button color="warn">Delete Account</button>
+</form>

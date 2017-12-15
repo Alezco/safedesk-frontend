@@ -1,0 +1,228 @@
+@import '~@angular/material/theming';
+@import '~@covalent/core/theming/all-theme';
+
+@include mat-core;
+
+
+// Default material theme
+$app-primary: mat-palette($mat-blue);
+$app-accent:  mat-palette($mat-indigo);
+$app-warn:    mat-palette($mat-red);
+$theme: mat-light-theme($app-primary, $app-accent, $app-warn);
+
+@include angular-material-theme($theme);
+@include covalent-theme($theme);
+
+// Material design guidelines
+$primary-text: #FFF;
+$secondary-text: rgba(255, 255, 255, 0.7);
+
+$primary-text-dark: #000;
+$secondary-text-dark: rgba(0, 0, 0, 0.7);
+
+@import './emails/centermail';
+@import './home/contact';
+@import './home/presentation';
+@import './home/auth-form';
+@import './tools/utils';
+@import './dashboard/profile-form';
+@import './desktop/desktop';
+@import './subwindow/subwindow';
+@import './scene3d/scene3d';
+@import './scene3d/legit';
+@import './stats/stat';
+@import './shop/shop';
+
+/**
+ * GENERAL
+ */
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: auto;
+  font-family: Robot, sans-serif;
+  background-color: rgba(0, 0, 0, 0.08);
+
+  .mat-card {
+    padding: 24px;
+    margin: inherit;
+  }
+}
+
+// Override covalent td loading service to prevent flashing white overlay
+// on fast internet connection
+.td-loading-wrapper.td-overlay .td-loading {
+  background: rgba(255, 255, 255, 0);
+}
+
+// Used for sticky footer
+.page-flexbox-wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 1 auto;
+}
+
+/**
+* HOMEPAGE LAYOUT
+*/
+
+footer {
+  background: #424242;
+  color: #F5F5F5;
+}
+
+footer .footer-columns {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+footer .footer-columns section {
+  margin: 0 auto;
+}
+
+footer .footer-columns section ul {
+  display: inline-grid;
+  padding: 0;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+footer .footer-columns section ul li {
+  display: inline;
+  padding: 10px 0;
+}
+
+footer .footer-columns section ul li a {
+  color: rgba(255, 255, 255, 0.87f);
+  text-decoration: none;
+}
+
+footer .footer-container {
+  text-align: center;
+  padding: 40px;
+}
+
+md-card.card-presentation {
+  width: auto;
+  max-width: 900px;
+  margin: 16px auto;
+}
+
+.presentation-header {
+  margin: 0;
+  background: mat-color(map-get($theme, primary));
+  overflow: hidden;
+  text-align: center;
+  color: $secondary-text;
+  padding-bottom: 20px;
+}
+
+.presentation-header p:first-child {
+  color: $primary-text;
+  font-size: 30px;
+  text-transform: uppercase;
+}
+
+.presentation-header p {
+  color: $secondary-text;
+  font-size: 18px;
+}
+
+.presentation-action {
+  margin: 45px 0 25px;
+}
+
+.presentation-action button span {
+  text-transform: uppercase;
+}
+
+/**
+* GENERAL MATERIAL COMPONENTS
+*/
+
+md-input {
+  margin: 8px 0;
+  width: 100px;
+}
+
+/**
+* CARD CONTAINER
+*/
+
+.card-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-content: center;
+}
+
+.card-container md-card {
+  width: auto;
+  max-width: 200px;
+  box-sizing: border-box;
+  margin: 16px;
+  min-height: 400px;
+}
+
+.card-container .mat-card-image:first-child {
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 5px;
+}
+
+/**
+ * DESKTOP
+ */
+
+.desktop-window {
+  position: absolute;
+  background-color: black;
+  color: white;
+  top: 10%;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1000px;
+  width: auto;
+}
+
+.desktop-icon md-grid-tile-footer.mat-grid-tile-footer span {
+  margin: 0 auto;
+}
+
+md-grid-tile img {
+  width: 70px;
+  height: auto;
+}
+
+/**
+* 3D
+*/
+
+#renderCanvas {
+  height: 100vh;
+  width: 100vw;
+}
+
+/**
+* Achievements
+*/
+
+.shift-title {
+  padding-left: 50px;
+}

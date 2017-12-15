@@ -1,0 +1,55 @@
+td-step-header {
+  pointer-events: none;
+}
+
+.padding-few {
+  padding: 15px;
+}
+
+/deep/ .mat-tab-body-content {
+  overflow-y: hidden !important;
+  height: auto !important;
+}
+
+.legit-height {
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.profile-top {
+  background: #1A2C4D;
+  padding: 1.5em;
+  display: inline-block;
+  width: 100%;
+}
+
+.pic {
+  float: left;
+  width: 25%;
+}
+
+.pic img {
+  width: 100px;
+  border-radius: 50%;
+  border: 5px solid #FFF;
+}
+
+.pic-info {
+  float: left;
+  width: 65%;
+  margin-left: 10%;
+  text-align: left;
+  padding-top: 2em;
+}
+
+.pic-info h2 {
+  color: #FFF;
+  font-size: 1.5em;
+  font-weight: 600;
+}
+
+.pic-info h3 {
+  color: #FFF;
+  font-size: 1.1em;
+  text-transform: uppercase;
+}

@@ -1,0 +1,171 @@
+<div>
+  <div layout="row" class="pull-bottom-md pull-right-md">
+    <ngx-charts-number-card
+        [scheme]="colorScheme"
+        [results]="single">
+      </ngx-charts-number-card>
+  </div>
+  <div layout-gt-xs="row">
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Replies</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isPieEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isPieEmpty">
+            <ngx-charts-pie-chart
+              [scheme]="colorScheme"
+              [results]="pieData"
+              [legend]="showLegend"
+              [labels]="showLabels"
+              [gradient]="gradient">
+            </ngx-charts-pie-chart>
+          </div>
+        </div>
+      </md-card>
+    </div>
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Received emails</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isReceivedEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isReceivedEmpty">
+            <ngx-charts-bar-vertical-2d
+              [scheme]="colorScheme"
+              [results]="received"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [yAxisTickFormatting]="axisDigits"
+              [barPadding]="2"
+              [groupPadding]="8">
+            </ngx-charts-bar-vertical-2d>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </div>
+  <div layout-gt-xs="row">
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Good received emails</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isGoodEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isGoodEmpty">
+            <ngx-charts-bar-vertical-2d
+              [scheme]="colorScheme"
+              [results]="goodReceived"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [yAxisTickFormatting]="axisDigits"
+              [barPadding]="2"
+              [groupPadding]="8">
+            </ngx-charts-bar-vertical-2d>
+          </div>
+        </div>
+      </md-card>
+    </div>
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Bad received emails</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isBadEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isBadEmpty">
+            <ngx-charts-bar-vertical-2d
+              [scheme]="colorScheme"
+              [results]="badReceived"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [yAxisTickFormatting]="axisDigits"
+              [barPadding]="2"
+              [groupPadding]="8">
+            </ngx-charts-bar-vertical-2d>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </div>
+
+  <div layout-gt-xs="row">
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Score</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isScoreGainedEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isScoreGainedEmpty">
+            <ngx-charts-line-chart
+              [scheme]="colorScheme"
+              [results]="scoreGained"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [yAxisTickFormatting]="axisDigits">
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </md-card>
+    </div>
+    <div flex-gt-xs="50">
+      <md-card style="height:500px;">
+        <md-card-title>Level</md-card-title>
+        <md-divider></md-divider>
+        <div>
+          <div *ngIf="isLevelByDateEmpty">
+            <p>No stats to display</p>
+          </div>
+          <div *ngIf="!isLevelByDateEmpty">
+            <ngx-charts-line-chart
+              [scheme]="colorScheme"
+              [results]="levelByDate"
+              [gradient]="gradient"
+              [xAxis]="showXAxis"
+              [yAxis]="showYAxis"
+              [legend]="showLegend"
+              [showXAxisLabel]="showXAxisLabel"
+              [showYAxisLabel]="showYAxisLabel"
+              [xAxisLabel]="xAxisLabel"
+              [yAxisLabel]="yAxisLabel"
+              [yAxisTickFormatting]="axisDigits">
+            </ngx-charts-line-chart>
+          </div>
+        </div>
+      </md-card>
+    </div>
+  </div>
+</div>

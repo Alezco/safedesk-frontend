@@ -1,0 +1,9 @@
+<div *ngFor="let achievement of achievements">
+    <md-card>
+        <md-card-header>
+            <div md-card-avatar><img mat-card-md-image src="{{achievement.image}}"></div>
+            <md-card-title><h1 class="shift-title">{{achievement.name}}</h1></md-card-title>
+            <md-card-subtitle><h2 class="shift-title">{{achievement.description}}</h2></md-card-subtitle>
+        </md-card-header>
+    </md-card>
+</div>

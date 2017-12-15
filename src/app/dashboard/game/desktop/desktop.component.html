@@ -1,0 +1,42 @@
+<div class="background-desktop">
+  <md-grid-list cols="10" class="desktop-icon">
+    <div *ngFor="let item of folders; let i = index">
+      <md-grid-tile (dblclick)="clickOnFolder()">
+        <img src="../../../../assets/images/desktop/folder.png">
+        <md-grid-tile-footer>
+          <span>File Explorer</span>
+        </md-grid-tile-footer>
+      </md-grid-tile>
+    </div>
+    <md-grid-tile (dblclick)="clickOnEmail()">
+      <img src="../../../../assets/images/desktop/email.png">
+      <md-grid-tile-footer>
+        <span>Emails</span>
+      </md-grid-tile-footer>
+    </md-grid-tile>
+  </md-grid-list>
+  <div *ngFor="let item of topLevels; let i = index">
+    <div *ngIf="item != null">
+      <app-sub-window #fs [title]="fileExplorerTitle"
+                      [type]="SubwindowType.Filesystem"
+                      [topLevelIndex]=i
+                      (notifyParent)="removeTopLevel($event)"
+                      (OpenDoc)="OpenDoc($event)">
+      </app-sub-window>
+    </div>
+  </div>
+  <div *ngFor="let test of emails; let i = index">
+    <app-sub-window #mailCenter [title]="mailCenterTitle"
+                    [type]="SubwindowType.MailCenter"
+                    [topLevelIndex]=-1
+                    (notifyParent)="removeEmail($event)">
+    </app-sub-window>
+  </div>
+  <div *ngFor="let item of topLevelItems; let i = index">
+    <app-sub-window [title]="item.filename"
+                    [topLevelIndex]=i
+                    [content]="item.content"
+                    (notifyParent)="removeTopLevelItem($event)">
+    </app-sub-window>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="contact-form">
+  <md-card>
+    <md-card-title>Contact</md-card-title>
+    <md-card-subtitle>Contact the team</md-card-subtitle>
+    <md-card-content>
+      <md-chip-list *ngIf="formSuccess" class="alert alert-success" ng-show="false">
+        <md-chip color="success" selected="true">
+          <strong>{{formSuccess.title}}: </strong>{{formSuccess.description}}
+        </md-chip>
+      </md-chip-list>
+      <div *ngIf="hasErrors" class="alert alert-danger" ng-show="false">
+        <md-chip-list *ngFor="let error of formErrors">
+          <md-chip color="warn" selected="true">
+            <strong>{{error.title}}: </strong>{{error.description}}
+          </md-chip>
+        </md-chip-list>
+      </div>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <form #loginForm="ngForm" (ngSubmit)="sendContactForm()" ngNativeValidate>
+        <div layout="row" layout-margin>
+          <md-input-container flex>
+            <input mdInput placeholder="Name" autocomplete="off" type="text"
+                   required [(ngModel)]="formObject.name" #name="ngModel"
+                   [ngModelOptions]="{standalone: true}" title="name">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-margin>
+          <md-input-container flex>
+            <input mdInput placeholder="Email" autocomplete="off" type="email"
+                   required [(ngModel)]="formObject.email" #email="ngModel"
+                   [ngModelOptions]="{standalone: true}" title="email">
+          </md-input-container>
+        </div>
+        <div layout="row" layout-margin>
+          <md-input-container flex>
+          <textarea mdInput placeholder="Message" autocomplete="off" type="text"
+                    required [(ngModel)]="formObject.message" #email="ngModel"
+                    [ngModelOptions]="{standalone: true}" title="message" minlength="10">
+          </textarea>
+          </md-input-container>
+        </div>
+        <re-captcha
+                #captchaRef="reCaptcha"
+                (resolved)="resolved($event)"
+                siteKey="6LeYShkUAAAAAIMA0VCL27cndhzECI9pYAS99gL9"
+                size="invisible"
+        ></re-captcha>
+        <button type="submit" md-raised-button color="accent" (onClick)="sendContactForm()">Send</button>
+      </form>
+    </md-card-content>
+  </md-card>
+</div>
